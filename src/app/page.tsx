@@ -1,397 +1,564 @@
-export default function Home() {
+// src/app/page.tsx
+"use client";
+
+import Image from "next/image";
+import { useRevealOnScroll } from "./useRevealOnScroll";
+
+export default function HomePage() {
+  useRevealOnScroll();
+
   return (
     <main
       style={{
         minHeight: "100vh",
-        padding: "2rem",
-        maxWidth: "1100px",
-        margin: "0 auto",
+        backgroundColor: "#020617",
+        color: "#F9FAFB",
         fontFamily:
           "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-        color: "#222",
-        backgroundColor: "#f8f4ef",
       }}
     >
-      {/* Hero */}
+      {/* HERO: full-width image background with text overlay */}
       <section
         style={{
-          display: "grid",
-          gridTemplateColumns: "minmax(0, 1.4fr) minmax(0, 1fr)",
-          gap: "2rem",
-          alignItems: "center",
-          marginBottom: "3.5rem",
+          position: "relative",
+          width: "100%",
+          minHeight: "70vh",
+          overflow: "hidden",
+          borderBottom: "1px solid rgba(15,23,42,0.8)",
         }}
       >
-        <div>
-          <h1 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>
-            Timeless Stone Craftsmanship for Los Angeles Homes
-          </h1>
-          <p
-            style={{
-              fontSize: "1.05rem",
-              marginBottom: "0.75rem",
-              color: "#555",
-            }}
-          >
-            Custom marble and granite countertops, fireplaces, and surfaces
-            fabricated and installed with precision for homeowners, contractors,
-            realtors, and designers across Los Angeles County and Glendale.
-          </p>
-          <p
-            style={{
-              fontSize: "1.05rem",
-              marginBottom: "1.5rem",
-              color: "#555",
-            }}
-          >
-            From first measure to final polish, our team handles every detail so
-            your project finishes on time and looks exceptional for years to
-            come.
-          </p>
-          <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-            <button
-              style={{
-                padding: "0.8rem 1.6rem",
-                backgroundColor: "#b98b3f",
-                color: "#fff",
-                border: "none",
-                borderRadius: "4px",
-                cursor: "pointer",
-                fontSize: "1rem",
-              }}
-            >
-              Get a Free Quote
-            </button>
-            <button
-              style={{
-                padding: "0.8rem 1.4rem",
-                backgroundColor: "transparent",
-                color: "#444",
-                border: "1px solid #ccc",
-                borderRadius: "4px",
-                cursor: "pointer",
-                fontSize: "0.95rem",
-              }}
-            >
-              View Our Gallery
-            </button>
-          </div>
-        </div>
+        {/* Background image */}
         <div
           style={{
-            width: "100%",
-            height: "260px",
-            backgroundColor: "#ddd",
-            borderRadius: "8px",
-            border: "1px solid #ccc",
+            position: "absolute",
+            inset: 0,
+          }}
+        >
+          <Image
+            src="/home/hero.jpg"
+            alt="Stone countertop installation by Quiroz Marble & Granite"
+            fill
+            priority
+            quality={95}
+            style={{
+              objectFit: "cover",
+              objectPosition: "center",
+              filter: "brightness(0.72) saturate(1.1)",
+            }}
+          />
+          {/* Subtle gradient vignette for better text contrast */}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background:
+                "linear-gradient(90deg, rgba(3,7,18,0.9) 0%, rgba(3,7,18,0.6) 40%, rgba(3,7,18,0.1) 100%)",
+            }}
+          />
+        </div>
+
+        {/* Hero content */}
+        <div
+          className="reveal"
+          style={{
+            position: "relative",
+            zIndex: 1,
+            maxWidth: "1120px",
+            margin: "0 auto",
+            padding: "4.5rem 1.5rem 4rem",
             display: "flex",
-            alignItems: "center",
+            flexDirection: "column",
             justifyContent: "center",
-            fontSize: "0.9rem",
-            color: "#555",
+            minHeight: "70vh",
           }}
         >
-          Future hero image of a finished kitchen or bathroom countertop
+          <p
+            style={{
+              textTransform: "uppercase",
+              letterSpacing: "0.16em",
+              fontSize: "0.78rem",
+              color: "#E5E7EB",
+              marginBottom: "0.9rem",
+            }}
+          >
+            LOS ANGELES • MARBLE • GRANITE • QUARTZ
+          </p>
+
+          <h1
+            style={{
+              fontSize: "clamp(2.6rem, 3.4vw + 1rem, 3.6rem)",
+              lineHeight: 1.05,
+              margin: "0 0 1.1rem",
+              maxWidth: "30rem",
+            }}
+          >
+            Stone surfaces crafted
+            <br />
+            for design‑driven projects.
+          </h1>
+
+          <p
+            style={{
+              fontSize: "1rem",
+              lineHeight: 1.7,
+              color: "#E5E7EB",
+              maxWidth: "30rem",
+              marginBottom: "2.1rem",
+            }}
+          >
+            Quiroz Marble &amp; Granite partners with contractors and designers
+            on high‑end stone projects across Los Angeles.
+          </p>
+
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              gap: "1rem",
+              marginBottom: "2.2rem",
+            }}
+          >
+            <a
+              href="/contact"
+              className="btn-pill-light"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "0.9rem 2rem",
+                fontWeight: 600,
+                fontSize: "0.98rem",
+                textDecoration: "none",
+                backgroundColor: "#FACC15",
+                color: "#0B1120",
+                borderRadius: "999px",
+                boxShadow:
+                  "0 16px 40px rgba(0,0,0,0.65), 0 0 0 1px rgba(250,204,21,0.35)",
+              }}
+            >
+              Request a project bid
+            </a>
+            <span
+              style={{
+                fontSize: "0.9rem",
+                color: "#E5E7EB",
+              }}
+            >
+              Trade‑focused • Licensed &amp; insured
+            </span>
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "1.7rem",
+              fontSize: "0.86rem",
+              color: "#D1D5DB",
+            }}
+          >
+            <div>
+              <div style={{ fontSize: "1.2rem", fontWeight: 600 }}>15+</div>
+              <div>years craftsmanship</div>
+            </div>
+            <div>
+              <div style={{ fontSize: "1.2rem", fontWeight: 600 }}>500+</div>
+              <div>projects installed</div>
+            </div>
+            <div>
+              <div style={{ fontSize: "1.2rem", fontWeight: 600 }}>LA</div>
+              <div>serving Los Angeles County</div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Who We Serve */}
-      <section style={{ marginBottom: "3rem" }}>
-        <h2 style={{ fontSize: "1.8rem", marginBottom: "0.75rem" }}>
-          Who We Serve in Los Angeles
-        </h2>
-        <p style={{ marginBottom: "1rem", color: "#555" }}>
-          Whether it&apos;s a single vanity or a full home remodel, we tailor
-          each project to your budget, timeline, and design vision.
-        </p>
+      {/* Thin divider strip */}
+      <section
+        style={{
+          borderTop: "1px solid #111827",
+          borderBottom: "1px solid #111827",
+          backgroundColor: "#020617",
+        }}
+      >
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-            gap: "0.75rem",
-            color: "#444",
+            maxWidth: "1120px",
+            margin: "0 auto",
+            padding: "1.4rem 1.5rem",
+            display: "flex",
+            justifyContent: "space-between",
+            gap: "1rem",
+            fontSize: "0.9rem",
+            color: "#9CA3AF",
           }}
         >
-          <div>
-            • Homeowners planning kitchen, bathroom, and outdoor kitchen
-            upgrades.
-          </div>
-          <div>
-            • Contractors and builders needing a reliable stone fabrication
-            partner.
-          </div>
-          <div>
-            • Realtors looking to add value before listing or after purchase.
-          </div>
-          <div>
-            • Interior designers sourcing premium stone for custom projects.
-          </div>
+          <span>Custom homes • Remodels • Multi‑unit projects</span>
+          <span>Serving Los Angeles County</span>
         </div>
       </section>
 
-      {/* Services Overview */}
-      <section style={{ marginBottom: "3rem" }}>
+      {/* What we fabricate */}
+      <section
+        style={{
+          maxWidth: "1120px",
+          margin: "0 auto",
+          padding: "3.1rem 1.5rem 2.5rem",
+        }}
+      >
         <div
+          className="reveal"
           style={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "baseline",
+            alignItems: "flex-end",
+            marginBottom: "1.7rem",
             gap: "1rem",
-            marginBottom: "1rem",
           }}
         >
-          <h2 style={{ fontSize: "1.8rem" }}>Custom Stone Services</h2>
-          <button
+          <h2
             style={{
-              padding: "0.4rem 0.9rem",
+              fontSize: "1.25rem",
+              margin: 0,
+            }}
+          >
+            What we fabricate
+          </h2>
+          <p
+            style={{
               fontSize: "0.9rem",
-              backgroundColor: "transparent",
-              color: "#444",
-              border: "1px solid #ccc",
-              borderRadius: "4px",
-              cursor: "pointer",
-              whiteSpace: "nowrap",
+              color: "#9CA3AF",
+              margin: 0,
             }}
           >
-            View All Services
-          </button>
+            Marble, granite, and quartz for design‑driven projects.
+          </p>
         </div>
-        <p style={{ marginBottom: "1rem", color: "#555" }}>
-          We handle your project from slab selection to final installation,
-          ensuring a smooth, predictable process at every step.
-        </p>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-            gap: "1rem",
-          }}
-        >
-          {[
-            {
-              title: "Kitchen Countertops",
-              body: "Custom marble, granite, and quartz countertops fabricated to fit your layout and appliances.",
-            },
-            {
-              title: "Bathroom Vanities & Showers",
-              body: "Elegant vanities, shower walls, and niches that stand up to daily use.",
-            },
-            {
-              title: "Fireplaces & Feature Walls",
-              body: "Statement fireplace surrounds and stone feature walls that become the focal point of your space.",
-            },
-            {
-              title: "Outdoor Kitchens & BBQs",
-              body: "Durable stone surfaces for patios, BBQ islands, and outdoor entertaining areas.",
-            },
-            {
-              title: "Commercial & Multifamily",
-              body: "Reception desks, lobby surfaces, and unit countertops for small commercial and multifamily projects.",
-            },
-          ].map((service) => (
-            <div
-              key={service.title}
-              style={{
-                backgroundColor: "#f2e9dd",
-                padding: "1rem",
-                borderRadius: "6px",
-                border: "1px solid #e0d5c5",
-              }}
-            >
-              <h3 style={{ fontSize: "1.1rem", marginBottom: "0.4rem" }}>
-                {service.title}
-              </h3>
-              <p style={{ fontSize: "0.95rem", color: "#555" }}>
-                {service.body}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
 
-      {/* Our Process */}
-      <section style={{ marginBottom: "3rem" }}>
-        <h2 style={{ fontSize: "1.8rem", marginBottom: "0.75rem" }}>
-          Our Simple 4-Step Process
-        </h2>
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-            gap: "1rem",
+            gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
+            gap: "1.1rem",
+            fontSize: "0.92rem",
+            color: "#E5E7EB",
           }}
         >
-          {[
-            {
-              title: "Consultation & Quote",
-              body: "Share your plans, measurements, and preferred materials; we provide a clear, itemized quote.",
-            },
-            {
-              title: "Material Selection",
-              body: "Choose from marble, granite, and quartz options that fit your design, maintenance needs, and budget.",
-            },
-            {
-              title: "Precision Fabrication",
-              body: "We template, cut, polish, and finish your stone using professional fabrication techniques.",
-            },
-            {
-              title: "Installation & Final Walkthrough",
-              body: "Our team installs, seals, and reviews every detail with you before we consider the job complete.",
-            },
-          ].map((step, index) => (
-            <div
-              key={step.title}
-              style={{
-                backgroundColor: "#fdfaf6",
-                padding: "1rem",
-                borderRadius: "6px",
-                border: "1px solid #e5dccd",
-              }}
-            >
-              <div
-                style={{
-                  fontSize: "0.85rem",
-                  color: "#b98b3f",
-                  fontWeight: 600,
-                  marginBottom: "0.4rem",
-                }}
-              >
-                Step {index + 1}
-              </div>
-              <h3 style={{ fontSize: "1.1rem", marginBottom: "0.3rem" }}>
-                {step.title}
-              </h3>
-              <p style={{ fontSize: "0.95rem", color: "#555" }}>{step.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Gallery Preview */}
-      <section style={{ marginBottom: "3rem" }}>
-        <h2 style={{ fontSize: "1.8rem", marginBottom: "0.75rem" }}>
-          Recent Projects
-        </h2>
-        <p style={{ marginBottom: "1rem", color: "#555" }}>
-          A glimpse at some of the kitchens, bathrooms, fireplaces, and outdoor
-          spaces we&apos;ve completed around Los Angeles County and Glendale.
-        </p>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-            gap: "0.75rem",
-          }}
-        >
-          {[
-            "Glendale kitchen – white quartz island with waterfall edge.",
-            "Los Angeles bathroom – marble vanity with full-height backsplash.",
-            "Outdoor BBQ – granite countertop with built-in grill.",
-            "Living room fireplace – stone feature wall with TV niche.",
-          ].map((caption) => (
-            <div
-              key={caption}
-              style={{
-                borderRadius: "6px",
-                overflow: "hidden",
-                border: "1px solid #ddd",
-                backgroundColor: "#eee",
-              }}
-            >
-              <div
-                style={{
-                  height: "140px",
-                  background:
-                    "linear-gradient(135deg, #d5d5d5 0%, #f0f0f0 50%, #c8c8c8 100%)",
-                }}
-              />
-              <div
-                style={{ padding: "0.6rem", fontSize: "0.9rem", color: "#444" }}
-              >
-                {caption}
-              </div>
-            </div>
-          ))}
-        </div>
-        <div style={{ marginTop: "0.75rem" }}>
-          <button
+          <div
+            className="card-dark reveal"
             style={{
-              padding: "0.6rem 1.2rem",
-              backgroundColor: "transparent",
-              color: "#444",
-              border: "1px solid #ccc",
-              borderRadius: "4px",
-              cursor: "pointer",
-              fontSize: "0.95rem",
+              padding: "1rem 1.1rem",
+              borderRadius: "12px",
+              border: "1px solid #1F2937",
+              background:
+                "linear-gradient(135deg, rgba(15,23,42,0.96), rgba(15,23,42,0.75))",
             }}
           >
-            See more projects in our Gallery
-          </button>
+            <h3
+              style={{
+                fontSize: "0.98rem",
+                margin: "0 0 0.4rem",
+                color: "#F9FAFB",
+              }}
+            >
+              Countertops &amp; vanities
+            </h3>
+            <p style={{ margin: 0, lineHeight: 1.5 }}>
+              Kitchens, baths, bars, and waterfall edges.
+            </p>
+          </div>
+
+          <div
+            className="card-dark reveal"
+            style={{
+              padding: "1rem 1.1rem",
+              borderRadius: "12px",
+              border: "1px solid #1F2937",
+              background:
+                "linear-gradient(135deg, rgba(15,23,42,0.96), rgba(15,23,42,0.75))",
+            }}
+          >
+            <h3
+              style={{
+                fontSize: "0.98rem",
+                margin: "0 0 0.4rem",
+                color: "#F9FAFB",
+              }}
+            >
+              Architectural details
+            </h3>
+            <p style={{ margin: 0, lineHeight: 1.5 }}>
+              Fireplaces, feature walls, stairs, and custom stone pieces.
+            </p>
+          </div>
+
+          <div
+            className="card-dark reveal"
+            style={{
+              padding: "1rem 1.1rem",
+              borderRadius: "12px",
+              border: "1px solid #1F2937",
+              background:
+                "linear-gradient(135deg, rgba(15,23,42,0.96), rgba(15,23,42,0.75))",
+            }}
+          >
+            <h3
+              style={{
+                fontSize: "0.98rem",
+                margin: "0 0 0.4rem",
+                color: "#F9FAFB",
+              }}
+            >
+              Multi‑unit &amp; spec
+            </h3>
+            <p style={{ margin: 0, lineHeight: 1.5 }}>
+              Streamlined fabrication for builders and developers.
+            </p>
+          </div>
+
+          <div
+            className="card-dark reveal"
+            style={{
+              padding: "1rem 1.1rem",
+              borderRadius: "12px",
+              border: "1px solid #1F2937",
+              background:
+                "linear-gradient(135deg, rgba(15,23,42,0.96), rgba(15,23,42,0.75))",
+            }}
+          >
+            <h3
+              style={{
+                fontSize: "0.98rem",
+                margin: "0 0 0.4rem",
+                color: "#F9FAFB",
+              }}
+            >
+              Custom residential
+            </h3>
+            <p style={{ margin: 0, lineHeight: 1.5 }}>
+              Custom homes that prioritize craft and material.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Why Choose Quiroz */}
-      <section style={{ marginBottom: "3rem" }}>
-        <h2 style={{ fontSize: "1.8rem", marginBottom: "0.75rem" }}>
-          Why Homeowners Trust Quiroz Marble &amp; Granite
-        </h2>
-        <ul
-          style={{
-            listStyle: "disc",
-            paddingLeft: "1.5rem",
-            marginBottom: "1rem",
-            color: "#555",
-          }}
-        >
-          <li>
-            Local expertise in Los Angeles County and Glendale projects and
-            requirements.
-          </li>
-          <li>
-            One dedicated point of contact from quote through installation.
-          </li>
-          <li>Careful protection of your home and cleanup after each visit.</li>
-          <li>Transparent pricing with no surprise add-ons at the end.</li>
-        </ul>
-        <p style={{ fontStyle: "italic", color: "#666" }}>
-          “Quiroz made our kitchen remodel easy and the countertops turned out
-          beautiful.” – Homeowner in Glendale
-        </p>
-      </section>
-
-      {/* Contact CTA */}
+      {/* Selected work (gallery) – images only, larger cards, higher quality */}
       <section
         style={{
-          padding: "1.5rem",
-          borderRadius: "8px",
-          backgroundColor: "#e9dfcf",
-          border: "1px solid #d1c4af",
+          borderTop: "1px solid #111827",
+          borderBottom: "1px solid #111827",
+          backgroundColor: "#020617",
         }}
       >
-        <h2 style={{ fontSize: "1.8rem", marginBottom: "0.5rem" }}>
-          Ready to Start Your Project?
-        </h2>
-        <p style={{ marginBottom: "0.8rem", color: "#444" }}>
-          Tell us about your project and get a free, no-obligation quote within
-          1–2 business days.
-        </p>
-        <button
+        <div
           style={{
-            padding: "0.8rem 1.6rem",
-            backgroundColor: "#b98b3f",
-            color: "#fff",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
-            fontSize: "1rem",
-            marginBottom: "0.6rem",
+            maxWidth: "1120px",
+            margin: "0 auto",
+            padding: "2.6rem 1.5rem 2.9rem",
           }}
         >
-          Request a Free Quote
-        </button>
-        <p style={{ fontSize: "0.95rem", color: "#555" }}>
-          Or call us at (XXX) XXX-XXXX during normal business hours.
-        </p>
+          <div
+            className="reveal"
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-end",
+              marginBottom: "1.6rem",
+              gap: "1rem",
+            }}
+          >
+            <h2
+              style={{
+                fontSize: "1.25rem",
+                margin: 0,
+              }}
+            >
+              Selected work
+            </h2>
+            <p
+              style={{
+                fontSize: "0.9rem",
+                color: "#9CA3AF",
+                margin: 0,
+              }}
+            >
+              A glimpse into our shop and recent projects.
+            </p>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+              gap: "1.4rem",
+            }}
+          >
+            {/* Card 1 – shop */}
+            <div
+              className="reveal"
+              style={{
+                borderRadius: "16px",
+                overflow: "hidden",
+                border: "1px solid #1F2937",
+                position: "relative",
+                minHeight: "260px",
+              }}
+            >
+              <Image
+                src="/home/shop.jpg"
+                alt="Inside our stone fabrication shop"
+                fill
+                quality={95}
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+
+            {/* Card 2 – close-up sink */}
+            <div
+              className="reveal"
+              style={{
+                borderRadius: "16px",
+                overflow: "hidden",
+                border: "1px solid #1F2937",
+                position: "relative",
+                minHeight: "260px",
+              }}
+            >
+              <Image
+                src="/home/upclosesink.jpg"
+                alt="Recent kitchen or bath installation"
+                fill
+                quality={95}
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+
+            {/* Card 3 – wide island */}
+            <div
+              className="reveal"
+              style={{
+                borderRadius: "16px",
+                overflow: "hidden",
+                border: "1px solid #1F2937",
+                position: "relative",
+                minHeight: "260px",
+              }}
+            >
+              <Image
+                src="/home/wideisland.jpg"
+                alt="Stone details, edges, and seams"
+                fill
+                quality={95}
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* For the trade + CTA */}
+      <section
+        style={{
+          borderTop: "1px solid #111827",
+          backgroundColor: "#020617",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "1120px",
+            margin: "0 auto",
+            padding: "3.1rem 1.5rem 3.5rem",
+            display: "grid",
+            gridTemplateColumns: "minmax(0, 3fr) minmax(0, 2fr)",
+            gap: "2.6rem",
+          }}
+        >
+          <div className="reveal">
+            <h2
+              style={{
+                fontSize: "1.25rem",
+                margin: "0 0 0.4rem",
+              }}
+            >
+              Built for the trade.
+            </h2>
+            <p
+              style={{
+                fontSize: "0.9rem",
+                color: "#9CA3AF",
+                margin: "0 0 1rem",
+              }}
+            >
+              The details, communication, and finish your clients expect.
+            </p>
+            <ul
+              style={{
+                listStyle: "none",
+                padding: 0,
+                margin: 0,
+                fontSize: "0.94rem",
+                color: "#E5E7EB",
+                display: "grid",
+                gap: "0.6rem",
+              }}
+            >
+              <li>Clear timelines that respect your schedule.</li>
+              <li>Support on materials, details, and site conditions.</li>
+              <li>Installers who leave the space ready to photograph.</li>
+            </ul>
+          </div>
+
+          <div
+            className="reveal"
+            style={{
+              borderRadius: "16px",
+              border: "1px solid #1F2937",
+              background:
+                "radial-gradient(circle at top, rgba(201,164,106,0.16), rgba(15,23,42,0.98))",
+              padding: "1.6rem 1.7rem",
+            }}
+          >
+            <p
+              style={{
+                fontSize: "0.95rem",
+                color: "#F9FAFB",
+                margin: "0 0 0.7rem",
+              }}
+            >
+              Share your next project.
+            </p>
+            <p
+              style={{
+                fontSize: "0.9rem",
+                color: "#E5E7EB",
+                margin: "0 0 1rem",
+                lineHeight: 1.5,
+              }}
+            >
+              Send your plans or scope and we&apos;ll follow up with a clear,
+              trade‑friendly bid and timeline.
+            </p>
+            <a
+              href="/contact"
+              className="btn-pill-light"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "0.8rem 1.7rem",
+                fontWeight: 600,
+                fontSize: "0.94rem",
+                textDecoration: "none",
+                backgroundColor: "#C9A46A",
+                color: "#0B1120",
+                borderRadius: "999px",
+              }}
+            >
+              Request a project bid
+            </a>
+          </div>
+        </div>
       </section>
     </main>
   );

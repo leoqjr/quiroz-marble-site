@@ -12,82 +12,205 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body
+        className="site-body"
         style={{
           margin: 0,
-          backgroundColor: "#f0ebe3",
+          backgroundColor: "#121218",
+          color: "#F5F5F5",
+          fontFamily:
+            "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
         }}
       >
+        {/* Header with nav */}
         <header
           style={{
-            borderBottom: "1px solid #ddd0c0",
-            backgroundColor: "#fdfaf6",
+            position: "sticky",
+            top: 0,
+            zIndex: 30,
+            borderBottom: "1px solid #1F2933",
+            backgroundColor: "#0B0F19",
           }}
         >
           <nav
             style={{
-              maxWidth: "1100px",
+              maxWidth: "1120px",
               margin: "0 auto",
-              padding: "0.8rem 2rem",
+              padding: "1rem 1.5rem",
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
               gap: "1.5rem",
-              fontFamily:
-                "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
             }}
           >
-            <Link href="/" style={{ textDecoration: "none", color: "#222" }}>
-              <span style={{ fontWeight: 600 }}>
-                Quiroz Marble &amp; Granite
-              </span>
+            <Link
+              href="/"
+              style={{
+                fontSize: "1rem",
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                color: "#F5F5F5",
+                textDecoration: "none",
+              }}
+            >
+              Quiroz Marble &amp; Granite
             </Link>
+
             <div
               style={{
                 display: "flex",
-                gap: "1rem",
-                fontSize: "0.95rem",
+                alignItems: "center",
+                gap: "1.75rem",
+                fontSize: "0.9rem",
               }}
             >
-              <Link href="/services">Services</Link>
-              <Link href="/gallery">Gallery</Link>
-              <Link href="/about">About</Link>
-              <Link href="/blog">Blog</Link>
-              <Link
-                href="/contact"
+              {/* Main nav links */}
+              <div
                 style={{
-                  padding: "0.4rem 0.9rem",
-                  borderRadius: "4px",
-                  border: "1px solid #b98b3f",
-                  color: "#b98b3f",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "1.25rem",
                 }}
               >
-                Contact
-              </Link>
+                <Link href="/services" className="nav-link-dark">
+                  Services
+                </Link>
+                <Link href="/gallery" className="nav-link-dark">
+                  Gallery
+                </Link>
+                <Link href="/about" className="nav-link-dark">
+                  About
+                </Link>
+                <Link
+                  href="/contact"
+                  className="btn-pill-ghost"
+                  style={{
+                    padding: "0.45rem 1.1rem",
+                    fontSize: "0.88rem",
+                    textDecoration: "none",
+                  }}
+                >
+                  Contact
+                </Link>
+              </div>
             </div>
           </nav>
         </header>
-        <div style={{ paddingTop: "1.5rem", paddingBottom: "3rem" }}>
-          {children}
-        </div>
+
+        <div className="site-main">{children}</div>
+
+        {/* Global footer with links + social */}
         <footer
           style={{
-            borderTop: "1px solid #ddd0c0",
-            backgroundColor: "#fdfaf6",
+            borderTop: "1px solid #1F2933",
+            backgroundColor: "#050814",
           }}
         >
           <div
             style={{
-              maxWidth: "1100px",
+              maxWidth: "1120px",
               margin: "0 auto",
-              padding: "0.8rem 2rem",
-              fontSize: "0.85rem",
-              color: "#666",
-              fontFamily:
-                "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+              padding: "1.6rem 1.5rem",
+              display: "grid",
+              gridTemplateColumns: "minmax(0, 2fr) minmax(0, 1.5fr)",
+              gap: "1.5rem",
+              fontSize: "0.82rem",
+              color: "#9CA3AF",
             }}
           >
-            © {new Date().getFullYear()} Quiroz Marble &amp; Granite. All rights
-            reserved.
+            {/* Left: brand + links */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.75rem",
+              }}
+            >
+              <div style={{ color: "#E5E7EB", fontSize: "0.9rem" }}>
+                Quiroz Marble &amp; Granite
+              </div>
+              <div style={{ fontSize: "0.8rem" }}>
+                Based in Los Angeles, serving surrounding areas with custom
+                marble, granite, and quartz fabrication and installation.
+              </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "0.8rem",
+                  marginTop: "0.3rem",
+                }}
+              >
+                {/* Helpful footer links */}
+                <Link href="/services" className="nav-link-dark">
+                  Services
+                </Link>
+                <Link href="/gallery" className="nav-link-dark">
+                  Gallery
+                </Link>
+                <Link href="/about" className="nav-link-dark">
+                  About
+                </Link>
+                <Link href="/contact" className="nav-link-dark">
+                  Contact
+                </Link>
+                {/* Blog stays in footer as Articles */}
+                <Link href="/blog" className="nav-link-dark">
+                  Articles
+                </Link>
+              </div>
+            </div>
+
+            {/* Right: social + legal */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.5rem",
+                alignItems: "flex-end",
+                textAlign: "right",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  gap: "0.5rem",
+                  alignItems: "center",
+                  justifyContent: "flex-end",
+                  fontSize: "0.8rem",
+                  color: "#9CA3AF",
+                }}
+              >
+                {/* Footer social placeholders */}
+                <a
+                  href="#"
+                  aria-label="Instagram"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  IG
+                </a>
+                <a
+                  href="#"
+                  aria-label="Facebook"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  FB
+                </a>
+                <a
+                  href="#"
+                  aria-label="Houzz"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  HZ
+                </a>
+              </div>
+
+              <div style={{ opacity: 0.9 }}>Los Angeles, California</div>
+              <div>
+                © {new Date().getFullYear()} Quiroz Marble &amp; Granite. All
+                rights reserved.
+              </div>
+            </div>
           </div>
         </footer>
       </body>
