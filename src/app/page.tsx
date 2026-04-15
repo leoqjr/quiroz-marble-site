@@ -81,7 +81,7 @@ export default function HomePage() {
               marginBottom: "0.9rem",
             }}
           >
-            LOS ANGELES • MARBLE • GRANITE • QUARTZ
+            LOS ANGELES • STONE • GRANITE • QUARTZ
           </p>
 
           <h1
