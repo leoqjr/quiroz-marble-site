@@ -35,7 +35,7 @@ export default function HomePage() {
           }}
         >
           <Image
-            src="/home/hero.jpg"
+            src="https://github.com/leoqjr/quiroz-marble-site/blob/main/public/Home/hero.jpg?raw=true"
             alt="Stone countertop installation by Quiroz Marble & Granite"
             fill
             priority
