@@ -1,7 +1,6 @@
 // src/app/page.tsx
 "use client";
 
-import Image from "next/image";
 import { useRevealOnScroll } from "./useRevealOnScroll";
 
 export default function HomePage() {
@@ -34,16 +33,16 @@ export default function HomePage() {
             inset: 0,
           }}
         >
-          <Image
-            src="https://github.com/leoqjr/quiroz-marble-site/blob/main/public/Home/hero.jpg?raw=true"
+          <img
+            src="/home/hero.jpg"
             alt="Stone countertop installation by Quiroz Marble & Granite"
-            fill
-            priority
-            quality={95}
             style={{
+              width: "100%",
+              height: "100%",
               objectFit: "cover",
               objectPosition: "center",
               filter: "brightness(0.72) saturate(1.1)",
+              display: "block",
             }}
           />
           {/* Subtle gradient vignette for better text contrast */}
@@ -405,12 +404,15 @@ export default function HomePage() {
                 minHeight: "260px",
               }}
             >
-              <Image
+              <img
                 src="/home/shop.jpg"
                 alt="Inside our stone fabrication shop"
-                fill
-                quality={95}
-                style={{ objectFit: "cover" }}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block",
+                }}
               />
             </div>
 
@@ -425,12 +427,15 @@ export default function HomePage() {
                 minHeight: "260px",
               }}
             >
-              <Image
+              <img
                 src="/home/upclosesink.jpg"
                 alt="Recent kitchen or bath installation"
-                fill
-                quality={95}
-                style={{ objectFit: "cover" }}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block",
+                }}
               />
             </div>
 
@@ -445,12 +450,15 @@ export default function HomePage() {
                 minHeight: "260px",
               }}
             >
-              <Image
+              <img
                 src="/home/wideisland.jpg"
                 alt="Stone details, edges, and seams"
-                fill
-                quality={95}
-                style={{ objectFit: "cover" }}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block",
+                }}
               />
             </div>
           </div>
